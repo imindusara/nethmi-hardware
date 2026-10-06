@@ -82,29 +82,29 @@ export default function Home({ settings }) {
       <div className="space-y-12 sm:space-y-16 pb-16">
         
         {/* 1. HERO BANNER */}
-        <section className="relative bg-gradient-to-r from-[#340b38] via-[#4a154b] to-[#6b21a8] text-white py-12 lg:py-20 overflow-hidden shadow-inner">
+        <section className="relative bg-gradient-to-r from-purple-50/80 via-white to-amber-50/50 text-gray-900 py-12 lg:py-20 overflow-hidden border-b border-gray-100 shadow-xs">
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-2xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400 text-purple-950 text-xs font-black uppercase tracking-wider mb-4 shadow-sm">
                 <Truck className="w-3.5 h-3.5" />
                 <span>Islandwide Delivery Available Direct to Your Site</span>
               </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight text-white mb-4">
-                Everything You Need to <span className="text-amber-400">Build & Create</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-tight text-gray-900 mb-4">
+                Everything You Need to <span className="text-[#4a154b]">Build &</span> <span className="text-amber-500">Create</span>
               </h1>
-              <p className="text-sm sm:text-base text-purple-100 mb-8 max-w-xl leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-600 mb-8 max-w-xl leading-relaxed">
                 Contractor-grade power tools, SLS-certified cement, steel rebars, S-Lon plumbing, and Kelani cables with unbeatable wholesale rates.
               </p>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <Link
                   to="/products"
-                  className="px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform active:scale-95"
+                  className="px-6 py-3 rounded-xl bg-[#4a154b] hover:bg-[#5b176b] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md transition-transform active:scale-95"
                 >
                   Shop Catalog
                 </Link>
                 <Link
                   to="/quote"
-                  className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/20 transition-all active:scale-95"
+                  className="px-6 py-3 rounded-xl bg-white hover:bg-purple-50 text-[#4a154b] font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-[#4a154b] transition-all active:scale-95"
                 >
                   Request Project Quote
                 </Link>
@@ -112,22 +112,22 @@ export default function Home({ settings }) {
             </div>
 
             {/* Quick Promo Callout Box */}
-            <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-white max-w-md w-full shadow-2xl">
-              <div className="flex items-center gap-2 text-amber-300 text-xs font-bold uppercase mb-2">
-                <Flame className="w-4 h-4 fill-amber-300" />
+            <div className="bg-white p-6 rounded-3xl border-2 border-amber-400 text-gray-900 max-w-md w-full shadow-card">
+              <div className="flex items-center gap-2 text-amber-600 text-xs font-bold uppercase mb-2">
+                <Flame className="w-4 h-4 fill-amber-500 text-amber-500" />
                 <span>Special Contractor Pricing</span>
               </div>
-              <h3 className="font-heading font-black text-xl mb-2">
+              <h3 className="font-heading font-black text-xl text-[#4a154b] mb-2">
                 Monsoon Building Materials Promotion
               </h3>
-              <p className="text-xs text-purple-100 leading-relaxed mb-4">
+              <p className="text-xs text-gray-600 leading-relaxed mb-4">
                 Get up to 20% discount on volume cement orders, steel bundles, and exterior waterproofing coats.
               </p>
               <a
                 href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=Hello%20Nethmi%20Hardware!%20I%20want%20to%20claim%20the%20Contractor%20Promotion.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>Claim via WhatsApp</span>

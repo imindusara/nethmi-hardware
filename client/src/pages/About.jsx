@@ -28,16 +28,16 @@ export default function About({ settings }) {
       <div className="space-y-16 sm:space-y-24 pb-16">
         
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-charcoal-900 text-white py-16 lg:py-24">
+        <section className="relative overflow-hidden bg-gradient-to-b from-purple-50 via-white to-white text-gray-900 py-16 lg:py-24 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-500/10 text-primary-400 text-xs font-bold uppercase tracking-wide mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 text-[#4a154b] text-xs font-bold uppercase tracking-wide mb-4">
               <Award className="w-3.5 h-3.5" />
               <span>Over 15 Years of Building Excellence</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight text-white mb-6">
-              Building Trust. Powering Creation.
+            <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight text-gray-900 mb-6">
+              Building Trust. Powering <span className="text-[#4a154b]">Creation</span>.
             </h1>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               At Nethmi Hardware, we equip homeowners, carpenters, plumbers, electricians, and civil contractors with the highest-grade tools and construction supplies in Sri Lanka.
             </p>
           </div>
