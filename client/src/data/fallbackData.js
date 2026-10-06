@@ -21,86 +21,274 @@ export const fallbackSettings = {
 export const fallbackCategories = [
   {
     id: 1,
-    name: 'Power Tools',
+    name: 'Paint, Sealant & Adhesives',
+    slug: 'paint-sealant-adhesives',
+    description: 'Waterproofing chemicals, M-Seal epoxy, Hasky paint brushes, and Dulux emulsions.',
+    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
+    icon: 'Paintbrush',
+    product_count: 5
+  },
+  {
+    id: 2,
+    name: 'Bathroom & Plumbing',
+    slug: 'bathroom-plumbing',
+    description: 'S-Lon PVC pipes, brass ball valves, water pumps, overhead tanks, and tap fittings.',
+    image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80',
+    icon: 'Droplets',
+    product_count: 5
+  },
+  {
+    id: 3,
+    name: 'Power Tools & Machinery',
     slug: 'power-tools',
-    description: 'Heavy duty cordless drills, angle grinders, circular saws, and demolition hammers.',
+    description: 'Heavy duty cordless drills, angle grinders, cut-off saws, and demolition hammers.',
     image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
     icon: 'Wrench',
     product_count: 5
   },
   {
-    id: 2,
-    name: 'Building Materials',
+    id: 4,
+    name: 'Building Materials & Cement',
     slug: 'building-materials',
-    description: 'SLS-certified Portland cement, deformed steel bars, sand, and aggregate blocks.',
+    description: 'SLS-certified Tokyo cement, Lanwa steel rebar, binding wire, and sand blocks.',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
     icon: 'Building',
-    product_count: 4
-  },
-  {
-    id: 3,
-    name: 'Hand Tools',
-    slug: 'hand-tools',
-    description: 'Forged hammers, screwdrivers, wrenches, measuring tapes, and mason trowels.',
-    image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80',
-    icon: 'Hammer',
-    product_count: 3
-  },
-  {
-    id: 4,
-    name: 'Plumbing Supplies',
-    slug: 'plumbing',
-    description: 'PVC pipes, S-Lon brass ball valves, water pumps, pipe fittings, and sealants.',
-    image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80',
-    icon: 'Droplets',
-    product_count: 3
+    product_count: 5
   },
   {
     id: 5,
-    name: 'Electrical & Lighting',
-    slug: 'electrical',
-    description: 'Kelani cables, MCB circuit breakers, LED battens, conduit pipes, and wall sockets.',
+    name: 'Fasteners, Electrical & Safety',
+    slug: 'fasteners-electrical',
+    description: 'Kelani cables, hex bolts, screws, safety helmets, boots, and drill accessories.',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
     icon: 'Zap',
-    product_count: 3
-  },
-  {
-    id: 6,
-    name: 'Paint & Accessories',
-    slug: 'paint-accessories',
-    description: 'Dulux weather-shield emulsions, primers, rollers, scrapers, and thinner cans.',
-    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
-    icon: 'Paintbrush',
-    product_count: 3
-  },
-  {
-    id: 7,
-    name: 'Fasteners & Hardware',
-    slug: 'fasteners',
-    description: 'Hex bolts, drywall screws, rawl bolts, SS hinges, tower bolts, and padlocks.',
-    image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
-    icon: 'Nut',
-    product_count: 3
-  },
-  {
-    id: 8,
-    name: 'Safety & Protection',
-    slug: 'safety-gear',
-    description: 'Site safety helmets, steel-toe boots, high-vis vests, ear defenders, and masks.',
-    image: 'https://images.unsplash.com/photo-1578885136359-16c8bd4d3a8e?auto=format&fit=crop&w=800&q=80',
-    icon: 'ShieldCheck',
-    product_count: 3
+    product_count: 5
   }
 ];
 
 export const fallbackProducts = [
+  // 1. Paint, Sealant & Adhesives (Matches exact screenshot)
   {
     id: 1,
-    name: 'Bosch GSB 18V-50 Cordless Brushless Impact Drill Kit',
-    slug: 'bosch-gsb-18v-50-cordless-drill',
+    name: 'Cement: 2K Superseal – Water Proofer (30Kg) – Tokyo Super',
+    slug: 'cement-2k-superseal-water-proofer-30kg',
     category_id: 1,
+    category_slug: 'paint-sealant-adhesives',
+    category_name: 'Paint, Sealant & Adhesives',
+    sku: 'TOKYO-2K-30KG',
+    brand: 'Tokyo Super',
+    price: 45000,
+    offer_price: 27000,
+    is_on_offer: 1,
+    is_featured: 1,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Two-component acrylic modified cementitious waterproofing coating for concrete roofs, bathrooms, and water tanks.',
+    description: 'Tokyo Superseal 2K is a heavy-duty polymer modified waterproof slurry coat designed to resist positive water pressure up to 5 bar.',
+    specifications: { "Weight": "30 Kg (Pack)", "Mixing Ratio": "Pre-dosed 2-Component", "Coverage": "1.5 - 2.0 kg/m² per coat" }
+  },
+  {
+    id: 2,
+    name: 'Cement: 2K Superseal – Water Proofer (15Kg) – Tokyo Super',
+    slug: 'cement-2k-superseal-water-proofer-15kg',
+    category_id: 1,
+    category_slug: 'paint-sealant-adhesives',
+    category_name: 'Paint, Sealant & Adhesives',
+    sku: 'TOKYO-2K-15KG',
+    brand: 'Tokyo Super',
+    price: 23000,
+    offer_price: 13800,
+    is_on_offer: 1,
+    is_featured: 1,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Compact 15kg two-part waterproofing kit ideal for residential balconies, sunken slabs, and bathroom waterproofing.',
+    description: 'Provides flexible elastic seamless membrane that bridges hairline cracks in concrete structures.',
+    specifications: { "Weight": "15 Kg (Pack)", "Application": "Brush / Trowel Applied", "Drying Time": "4 - 6 Hours" }
+  },
+  {
+    id: 3,
+    name: 'Adhesive: General Purpose Epoxy Compound (100g) – M-Seal By Fevicol',
+    slug: 'adhesive-general-purpose-epoxy-compound-100g-mseal',
+    category_id: 1,
+    category_slug: 'paint-sealant-adhesives',
+    category_name: 'Paint, Sealant & Adhesives',
+    sku: 'MSEAL-100G',
+    brand: 'M-Seal',
+    price: 530,
+    offer_price: 451,
+    is_on_offer: 1,
+    is_featured: 1,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Fast-setting two-part epoxy putty for sealing pipe leaks, joining metal, ceramics, and filling gaps.',
+    description: 'M-Seal cures at room temperature to form a hard metallic mass that can be drilled, filed, and painted over.',
+    specifications: { "Weight": "100g Pack", "Curing Time": "30 - 45 Minutes", "Resistant": "Water, Oil, Steam" }
+  },
+  {
+    id: 4,
+    name: 'Paint Brush: 3/4" Paint Brush – Hasky',
+    slug: 'paint-brush-3-4-inch-hasky',
+    category_id: 1,
+    category_slug: 'paint-sealant-adhesives',
+    category_name: 'Paint, Sealant & Adhesives',
+    sku: 'HASKY-BRUSH-3-4IN',
+    brand: 'Hasky',
+    price: 400,
+    offer_price: 340,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Pure natural bristle paint brush with solid wooden handle for trim, corners, and precision varnish work.',
+    description: 'Stainless steel ferrule with high bristle retention for smooth oil and water-based paint applications.',
+    specifications: { "Size": "3/4 Inch (19mm)", "Bristles": "Natural Black Boar Bristle", "Handle": "Polished Wood" }
+  },
+  {
+    id: 5,
+    name: 'Paint Brush: 1/4" Paint Brush – Hasky',
+    slug: 'paint-brush-1-4-inch-hasky',
+    category_id: 1,
+    category_slug: 'paint-sealant-adhesives',
+    category_name: 'Paint, Sealant & Adhesives',
+    sku: 'HASKY-BRUSH-1-4IN',
+    brand: 'Hasky',
+    price: 335,
+    offer_price: 285,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Fine detail 1/4 inch paint brush for intricate woodworking corners, window frames, and crafts.',
+    description: 'Ergonomic slim grip wooden handle with durable bristles that maintain shape under solvent exposure.',
+    specifications: { "Size": "1/4 Inch (6mm)", "Bristles": "Pure Fine Bristle", "Usage": "Detailing & Touch-ups" }
+  },
+
+  // 2. Bathroom & Plumbing (Matches exact screenshot)
+  {
+    id: 6,
+    name: 'Plumbing: S-Lon PVC Ball Valve 1" – S-Lon Lanka',
+    slug: 'plumbing-slon-pvc-ball-valve-1-inch',
+    category_id: 2,
+    category_slug: 'bathroom-plumbing',
+    category_name: 'Bathroom & Plumbing',
+    sku: 'SLON-BV-1IN',
+    brand: 'S-Lon',
+    price: 1200,
+    offer_price: 980,
+    is_on_offer: 1,
+    is_featured: 1,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'High pressure molded uPVC full-port ball valve with smooth quarter-turn handle operation.',
+    description: 'Conforms to SLS standards for cold potable water installations, leak-proof PTFE seat seals.',
+    specifications: { "Size": "1 Inch (32mm)", "Material": "Lead-free uPVC", "Working Pressure": "PN16" }
+  },
+  {
+    id: 7,
+    name: 'Water Tank: 1000L Triple Layer Overhead Water Tank – National',
+    slug: 'water-tank-1000l-triple-layer-overhead-national',
+    category_id: 2,
+    category_slug: 'bathroom-plumbing',
+    category_name: 'Bathroom & Plumbing',
+    sku: 'TANK-NAT-1000L',
+    brand: 'National',
+    price: 32000,
+    offer_price: 27200,
+    is_on_offer: 1,
+    is_featured: 1,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Food-grade antimicrobial 3-layer UV stabilized rotomolded polyethylene water storage tank.',
+    description: 'Keeps water cool during hot sunny days and prevents algae growth inside the tank with thick black carbon layer.',
+    specifications: { "Capacity": "1000 Liters", "Layers": "3-Layer Antibacterial", "Warranty": "10 Years Manufacturer" }
+  },
+  {
+    id: 8,
+    name: 'Water Pump: 0.5HP Peripheral Clean Water Pump – Jialishi',
+    slug: 'water-pump-0-5hp-peripheral-clean-water-jialishi',
+    category_id: 2,
+    category_slug: 'bathroom-plumbing',
+    category_name: 'Bathroom & Plumbing',
+    sku: 'PUMP-QB60-05HP',
+    brand: 'Jialishi',
+    price: 19500,
+    offer_price: 16575,
+    is_on_offer: 1,
+    is_featured: 1,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Compact brass impeller domestic water booster pump with thermal overload protection.',
+    description: 'Perfect for pumping well water into overhead rooftop tanks in 1-2 story domestic residences.',
+    specifications: { "Power": "0.5 HP (370W)", "Max Head": "35 Meters", "Max Flow": "35 L/min" }
+  },
+  {
+    id: 9,
+    name: 'Plumbing: Brass Bib Cock Tap 1/2" Heavy – DSI Chrome',
+    slug: 'plumbing-brass-bib-cock-tap-half-inch-dsi',
+    category_id: 2,
+    category_slug: 'bathroom-plumbing',
+    category_name: 'Bathroom & Plumbing',
+    sku: 'TAP-BRASS-BIB-05IN',
+    brand: 'DSI Chrome',
+    price: 2400,
+    offer_price: 1990,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Solid forged brass body outdoor garden and bathroom wall-mount bib tap with triple chrome finish.',
+    description: 'Tested against drip leaks with heavy-duty ceramic cartridge valve for over 100,000 turn cycles.',
+    specifications: { "Thread": "1/2 Inch BSP Male", "Finish": "Mirror Chrome Plated", "Body": "Solid Brass" }
+  },
+  {
+    id: 10,
+    name: 'Plumbing: Flexible Hose Pipe 1/2" SS 450mm – S-Lon',
+    slug: 'plumbing-flexible-hose-pipe-half-inch-ss-450mm',
+    category_id: 2,
+    category_slug: 'bathroom-plumbing',
+    category_name: 'Bathroom & Plumbing',
+    sku: 'SLON-FLEX-450MM',
+    brand: 'S-Lon',
+    price: 850,
+    offer_price: 720,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Braided 304 stainless steel connector hose with brass hex nuts for washbasins and water geysers.',
+    description: 'Burst-proof EPDM internal rubber core capable of withstanding hot water temperatures and high city pressure.',
+    specifications: { "Length": "450 mm (18 inch)", "Nuts": "1/2 Inch Brass Female x Female", "Material": "SS 304" }
+  },
+
+  // 3. Power Tools & Machinery
+  {
+    id: 11,
+    name: 'Power Tool: Bosch GSB 18V-50 Cordless Brushless Impact Drill Kit – Bosch',
+    slug: 'bosch-gsb-18v-50-cordless-drill',
+    category_id: 3,
     category_slug: 'power-tools',
-    category_name: 'Power Tools',
+    category_name: 'Power Tools & Machinery',
     sku: 'BOSCH-GSB-18V50',
     brand: 'Bosch',
     price: 48500,
@@ -109,20 +297,19 @@ export const fallbackProducts = [
     is_featured: 1,
     stock_status: 'In Stock',
     images: [
-      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80'
     ],
-    short_description: 'Heavy duty 18V brushless motor impact drill with 2x 2.0Ah lithium batteries, charger and carry case.',
-    description: 'The Bosch GSB 18V-50 Professional delivers powerful performance with an intelligent brushless motor that communicates directly with the electronics.',
-    specifications: { "Voltage": "18V", "Max Torque": "50 Nm", "No-load Speed": "0 - 1,800 rpm", "Chuck Capacity": "1.5 - 13 mm" }
+    short_description: 'Heavy duty 18V brushless impact drill with 2x 2.0Ah lithium batteries, charger and carry case.',
+    description: 'Delivers intelligent brushless motor efficiency for metal drilling, masonry, and high-torque screw driving.',
+    specifications: { "Voltage": "18V", "Max Torque": "50 Nm", "Speed": "0 - 1,800 RPM" }
   },
   {
-    id: 2,
-    name: 'Makita 4-Inch Angle Grinder 840W Heavy Duty',
+    id: 12,
+    name: 'Power Tool: Makita 4-Inch Angle Grinder 840W Heavy Duty – Makita',
     slug: 'makita-4-inch-angle-grinder-840w',
-    category_id: 1,
+    category_id: 3,
     category_slug: 'power-tools',
-    category_name: 'Power Tools',
+    category_name: 'Power Tools & Machinery',
     sku: 'MAKITA-9557HN',
     brand: 'Makita',
     price: 18500,
@@ -133,17 +320,17 @@ export const fallbackProducts = [
     images: [
       'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=800&q=80'
     ],
-    short_description: 'Compact 840W industrial grinder with labyrinth construction seal to protect motor from abrasive dust.',
-    description: 'Equipped with a machined bevel gear set and high heat-resistance armature for steel cutting and weld deburring.',
-    specifications: { "Power Input": "840W", "Wheel Diameter": "100 mm (4 inch)", "Speed": "11,000 RPM", "Weight": "2.1 kg" }
+    short_description: 'Compact 840W industrial grinder with labyrinth dust seal for metal fabrication and concrete cutting.',
+    description: 'All-ball bearing motor assembly designed for continuous contractor grinding applications.',
+    specifications: { "Power": "840W", "Wheel Diameter": "100 mm (4\")", "Speed": "11,000 RPM" }
   },
   {
-    id: 3,
-    name: 'Ingco 2200W Professional Cut-Off Machine 355mm',
+    id: 13,
+    name: 'Power Tool: Ingco 2200W Professional Cut-Off Machine 355mm – Ingco',
     slug: 'ingco-2200w-cut-off-machine-355mm',
-    category_id: 1,
+    category_id: 3,
     category_slug: 'power-tools',
-    category_name: 'Power Tools',
+    category_name: 'Power Tools & Machinery',
     sku: 'INGCO-COS223589',
     brand: 'Ingco',
     price: 34500,
@@ -154,17 +341,61 @@ export const fallbackProducts = [
     images: [
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
     ],
-    short_description: 'Heavy duty 14-inch metal chop saw for fast cutting of steel pipes, angles and rebars.',
-    description: 'High-torque 2200W motor with spark deflection guard and quick-clamp vise mechanism.',
-    specifications: { "Power": "2200W", "Blade Size": "355 mm (14 inch)", "No Load Speed": "3700 RPM" }
+    short_description: 'Heavy duty 14-inch metal chop saw for fast cutting of structural steel pipes and angle irons.',
+    description: 'High-torque copper motor with quick-release vise lock and heavy steel stamped base.',
+    specifications: { "Power": "2200W", "Blade": "355 mm (14 inch)", "No Load Speed": "3700 RPM" }
   },
   {
-    id: 4,
-    name: 'Tokyo Super Portland Pozzolana Cement 50kg (SLS 1247)',
+    id: 14,
+    name: 'Power Tool: Ingco 600W Variable Speed Dust Blower – Ingco',
+    slug: 'ingco-600w-variable-speed-dust-blower',
+    category_id: 3,
+    category_slug: 'power-tools',
+    category_name: 'Power Tools & Machinery',
+    sku: 'INGCO-AB6008',
+    brand: 'Ingco',
+    price: 8900,
+    offer_price: 7500,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Powerful 600W electric air blower with vacuum dust bag for workshop and site cleaning.',
+    description: 'Variable speed dial allows adjustment of air velocity for delicate electronics or heavy workshop debris.',
+    specifications: { "Power": "600W", "Blowing Rate": "0 - 3.5 m³/min", "Variable Speed": "Yes" }
+  },
+  {
+    id: 15,
+    name: 'Power Tool: MMA-200 Inverter Arc Welding Machine IGBT – Jasic',
+    slug: 'mma-200-inverter-arc-welding-machine-jasic',
+    category_id: 3,
+    category_slug: 'power-tools',
+    category_name: 'Power Tools & Machinery',
+    sku: 'JASIC-MMA-200',
+    brand: 'Jasic',
+    price: 38000,
+    offer_price: 32300,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Digital display portable IGBT inverter welder with hot start and anti-stick arc control.',
+    description: 'Smooth arc ignition suitable for welding mild steel, stainless steel, and alloy steel rods from 2.5mm to 4.0mm.',
+    specifications: { "Current Range": "20 - 200 Amps", "Technology": "IGBT Inverter", "Weight": "4.8 kg" }
+  },
+
+  // 4. Building Materials & Cement
+  {
+    id: 16,
+    name: 'Cement: Tokyo Super Portland Pozzolana Cement 50kg – Tokyo Super',
     slug: 'tokyo-super-cement-50kg-sls-1247',
-    category_id: 2,
+    category_id: 4,
     category_slug: 'building-materials',
-    category_name: 'Building Materials',
+    category_name: 'Building Materials & Cement',
     sku: 'TOKYO-CEMENT-50KG',
     brand: 'Tokyo Super',
     price: 2450,
@@ -175,19 +406,19 @@ export const fallbackProducts = [
     images: [
       'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80'
     ],
-    short_description: 'Sri Lanka standard certified blended hydraulic cement for high early strength and long-term durability.',
-    description: 'Factory-fresh Tokyo Super Portland Pozzolana cement engineered for residential columns, slabs, plastering, and brick masonry.',
-    specifications: { "Standard": "SLS 1247 / SLS 107", "Weight": "50 kg bag", "Delivery": "Direct site lorry delivery available" }
+    short_description: 'Factory-fresh SLS 1247 certified Portland Pozzolana blended cement for residential construction.',
+    description: 'Engineered for high compressive strength, low heat of hydration, and superior crack resistance.',
+    specifications: { "Standard": "SLS 1247", "Weight": "50 kg Bag", "Delivery": "Lorry Delivery Available" }
   },
   {
-    id: 5,
-    name: 'RB Deformed Steel Rebar 12mm x 6m (QST / TMT SLS 375)',
+    id: 17,
+    name: 'Rebar: RB Deformed Steel Rebar 12mm x 6m – Lanwa / Melwire',
     slug: 'rb-deformed-steel-rebar-12mm-6m',
-    category_id: 2,
+    category_id: 4,
     category_slug: 'building-materials',
-    category_name: 'Building Materials',
+    category_name: 'Building Materials & Cement',
     sku: 'STEEL-TMT-12MM-6M',
-    brand: 'Melwire / Lanwa',
+    brand: 'Lanwa / Melwire',
     price: 3650,
     offer_price: null,
     is_on_offer: 0,
@@ -196,114 +427,72 @@ export const fallbackProducts = [
     images: [
       'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80'
     ],
-    short_description: 'High-strength thermo-mechanically treated reinforcement steel bars for structural foundation work.',
-    description: 'Certified 500W Grade QST steel rebars tested for high ductility, bendability and seismic performance.',
-    specifications: { "Diameter": "12 mm", "Length": "6 meters (20 ft)", "Grade": "RB 500W SLS 375" }
+    short_description: 'Certified RB 500W Grade QST thermo-mechanically treated reinforcement rebars.',
+    description: 'High tensile strength rebars for structural foundations, columns, beams, and suspended concrete slabs.',
+    specifications: { "Diameter": "12 mm", "Length": "6 meters (20 ft)", "Standard": "SLS 375" }
   },
   {
-    id: 6,
-    name: 'S-Lon PVC Pressure Pipe 1-Inch (Class 1000 - 4m)',
-    slug: 'slon-pvc-pressure-pipe-1-inch-4m',
+    id: 18,
+    name: 'Fastener: GI Binding Wire 20 Gauge (1kg Bundle) – SLS Certified',
+    slug: 'gi-binding-wire-20-gauge-1kg',
     category_id: 4,
-    category_slug: 'plumbing',
-    category_name: 'Plumbing Supplies',
-    sku: 'SLON-PVC-1IN-4M',
-    brand: 'S-Lon',
-    price: 1850,
-    offer_price: null,
-    is_on_offer: 0,
-    is_featured: 1,
-    stock_status: 'In Stock',
-    images: [
-      'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80'
-    ],
-    short_description: 'Original lead-free S-Lon drinking water supply pipe conforming to SLS 147.',
-    description: 'Safe for potable drinking water, high pressure resistant, UV stabilized for outdoor and concealed plumbing.',
-    specifications: { "Size": "1 Inch (32mm OD)", "Length": "4 meters", "Pressure Rating": "Class 1000 / Type 10" }
-  },
-  {
-    id: 7,
-    name: 'Kelani Single Core 7/0.67mm (2.5 sq.mm) Pure Copper Cable 100m',
-    slug: 'kelani-single-core-2-5-sqmm-cable-100m',
-    category_id: 5,
-    category_slug: 'electrical',
-    category_name: 'Electrical & Lighting',
-    sku: 'KELANI-7-067-100M',
-    brand: 'Kelani Cables',
-    price: 24500,
-    offer_price: 22800,
-    is_on_offer: 1,
-    is_featured: 1,
-    stock_status: 'In Stock',
-    images: [
-      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80'
-    ],
-    short_description: 'SLS 733 certified 99.9% pure annealed copper electrical wiring coil for power socket circuits.',
-    description: '100% genuine Kelani cables offering superior insulation flame retardancy and minimal voltage drop.',
-    specifications: { "Conductor": "7/0.67mm (2.5mm²)", "Coil Length": "100 meters", "Voltage Grade": "450/750V" }
-  },
-  {
-    id: 8,
-    name: 'Dulux Weathershield Exterior Emulsion Paint 10L Brilliant White',
-    slug: 'dulux-weathershield-exterior-paint-10l',
-    category_id: 6,
-    category_slug: 'paint-accessories',
-    category_name: 'Paint & Accessories',
-    sku: 'DULUX-WS-10L-WHITE',
-    brand: 'Dulux',
-    price: 32500,
-    offer_price: 29800,
-    is_on_offer: 1,
-    is_featured: 1,
-    stock_status: 'In Stock',
-    images: [
-      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80'
-    ],
-    short_description: 'Premium exterior elastomeric paint with Smart Release algae and fungus resistant technology.',
-    description: 'Engineered for tropical Sri Lankan monsoon rains and intense UV sunlight to prevent peeling and hairline cracks.',
-    specifications: { "Volume": "10 Liters", "Coverage": "13 - 15 m² / Liter / coat", "Finish": "Low Sheen Smooth" }
-  },
-  {
-    id: 9,
-    name: 'Stanley Professional 8-Meter PowerLock Measuring Tape',
-    slug: 'stanley-powerlock-8m-measuring-tape',
-    category_id: 3,
-    category_slug: 'hand-tools',
-    category_name: 'Hand Tools',
-    sku: 'STANLEY-33-428',
-    brand: 'Stanley',
-    price: 2950,
-    offer_price: null,
-    is_on_offer: 0,
-    is_featured: 0,
-    stock_status: 'In Stock',
-    images: [
-      'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80'
-    ],
-    short_description: 'Mylar coated steel blade with Tru-Zero end hook and die-cast metal chrome case.',
-    description: 'The contractor standard measuring tape trusted across job sites for precise architectural measurements.',
-    specifications: { "Length": "8 meters (26 ft)", "Blade Width": "25 mm", "Case": "Chrome-plated ABS" }
-  },
-  {
-    id: 10,
-    name: 'High-Tensile Hex Head Bolts M10x30 with Nylon Lock Nuts (Pack of 50)',
-    slug: 'high-tensile-hex-bolts-m10x30-50pk',
-    category_id: 7,
-    category_slug: 'fasteners',
-    category_name: 'Fasteners & Hardware',
-    sku: 'BOLT-HT-M10X30-50PK',
-    brand: 'Apex Fasteners',
-    price: 2150,
-    offer_price: 1850,
+    category_slug: 'building-materials',
+    category_name: 'Building Materials & Cement',
+    sku: 'WIRE-GI-20G-1KG',
+    brand: 'SLS Certified',
+    price: 550,
+    offer_price: 480,
     is_on_offer: 1,
     is_featured: 0,
     stock_status: 'In Stock',
     images: [
       'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80'
     ],
-    short_description: 'Grade 8.8 zinc-plated structural hex bolts with matching washers and nyloc locking nuts.',
-    description: 'Precision forged metric thread fasteners suitable for machinery, metal framing, and roof truss connections.',
-    specifications: { "Size": "M10 x 30 mm", "Grade": "8.8 High Tensile Steel", "Coating": "Yellow / White Zinc Plated" }
+    short_description: 'Soft annealed galvanized iron tying wire for rebar cage tying and scaffolding.',
+    description: 'Pliable and easy to tie without snapping under torsion during steel fixing.',
+    specifications: { "Gauge": "20 BWG", "Coating": "Hot Dip Galvanized", "Pack": "1 kg Coil" }
+  },
+  {
+    id: 19,
+    name: 'Masonry: Concrete Hollow Blocks 4x8x16 – Premium Grade',
+    slug: 'concrete-hollow-blocks-4x8x16',
+    category_id: 4,
+    category_slug: 'building-materials',
+    category_name: 'Building Materials & Cement',
+    sku: 'BLOCK-HOLLOW-4X8X16',
+    brand: 'Apex Masonry',
+    price: 120,
+    offer_price: null,
+    is_on_offer: 0,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Machine-vibrated steam cured concrete partition blocks for perimeter walls and internal partitions.',
+    description: 'High compressive strength with uniform sharp corners for faster mortar laying.',
+    specifications: { "Dimensions": "4\" x 8\" x 16\"", "Type": "Hollow Partition Block", "Strength": "> 3.5 N/mm²" }
+  },
+  {
+    id: 20,
+    name: 'Waterproofing: Dr. Fixit Super Latex SBR Waterproofing 5L – Pidilite',
+    slug: 'dr-fixit-super-latex-sbr-waterproofing-5l',
+    category_id: 4,
+    category_slug: 'building-materials',
+    category_name: 'Building Materials & Cement',
+    sku: 'DRFIXIT-SBR-5L',
+    brand: 'Dr. Fixit',
+    price: 7800,
+    offer_price: 6630,
+    is_on_offer: 1,
+    is_featured: 0,
+    stock_status: 'In Stock',
+    images: [
+      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80'
+    ],
+    short_description: 'Styrene Butadiene rubber polymer bonding agent for repair mortar, screeds and structural waterproofing.',
+    description: 'Enhances bond strength of old-to-new concrete and increases water impermeability.',
+    specifications: { "Volume": "5 Liters", "Polymer": "SBR Latex", "Dosage": "1 Liter per 50kg Cement" }
   }
 ];
 

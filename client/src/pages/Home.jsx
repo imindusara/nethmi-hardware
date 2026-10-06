@@ -52,8 +52,8 @@ export default function Home({ settings }) {
       try {
         const [catsRes, featRes, offerRes, testRes] = await Promise.all([
           api.getCategories(),
-          api.getProducts({ limit: 10 }),
-          api.getProducts({ onOffer: 'true', limit: 5 }),
+          api.getProducts({ limit: 50 }),
+          api.getProducts({ onOffer: 'true', limit: 10 }),
           api.getTestimonials()
         ]);
 
@@ -137,80 +137,79 @@ export default function Home({ settings }) {
         </section>
 
 
-        {/* 2. CATEGORY ICON BROWSER */}
+        {/* 2. CATEGORY SHOWCASE ROWS (Matching Screenshot Exactly) */}
+        
+        {/* Section 1: Paint, Sealant & Adhesives */}
         <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6 pb-2 border-b-2 border-[#4a154b]">
-            <h2 className="text-lg sm:text-xl font-black font-heading uppercase text-gray-900 dark:text-white flex items-center gap-2">
-              <span className="w-2 h-5 bg-[#4a154b] rounded-xs"></span>
-              <span>Shop by Department</span>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold font-heading text-[#4a154b]">
+              Paint, Sealant & Adhesives
             </h2>
-            <Link to="/categories" className="text-xs font-bold text-[#4a154b] dark:text-amber-400 hover:underline flex items-center gap-1">
-              <span>View All 8 Categories</span>
-              <ChevronRight className="w-3.5 h-3.5" />
+            <Link to="/products?category=paint-sealant-adhesives" className="text-xs font-bold text-[#4a154b] hover:underline flex items-center gap-1">
+              <span>View All</span>
+              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
-            {categories.map((cat) => {
-              const Icon = iconMap[cat.icon] || Wrench;
-              return (
-                <Link
-                  key={cat.id}
-                  to={`/products?category=${cat.slug}`}
-                  className="group bg-white dark:bg-charcoal-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-3 sm:p-4 text-center hover:border-amber-400 dark:hover:border-amber-400 transition-all hover:shadow-card flex flex-col items-center justify-between"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-[#4a154b] dark:text-purple-300 flex items-center justify-center mb-2 group-hover:bg-[#4a154b] group-hover:text-amber-400 transition-colors">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-heading font-bold text-xs text-gray-800 dark:text-gray-200 group-hover:text-[#4a154b] dark:group-hover:text-amber-400 transition-colors line-clamp-1">
-                    {cat.name}
-                  </h3>
-                  <span className="text-[10px] text-gray-400 mt-0.5">
-                    {cat.product_count || 0} items
-                  </span>
-                </Link>
-              );
-            })}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+            {featuredProducts.filter(p => p.category_slug === 'paint-sealant-adhesives' || p.category_id === 1).slice(0, 5).map((p) => (
+              <ProductCard key={p.id} product={p} whatsappNumber={whatsapp} />
+            ))}
           </div>
         </section>
 
-
-        {/* 3. HOT DEALS & SPECIAL OFFERS (5 Columns Product Grid) */}
-        {offerProducts.length > 0 && (
-          <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-6 pb-2 border-b-2 border-amber-500">
-              <h2 className="text-lg sm:text-xl font-black font-heading uppercase text-gray-900 dark:text-white flex items-center gap-2">
-                <Flame className="w-5 h-5 text-amber-500 fill-amber-500 animate-pulse" />
-                <span>Hot Deals & Clearance Items</span>
-              </h2>
-              <Link to="/products?onOffer=true" className="text-xs font-bold text-[#4a154b] dark:text-amber-400 hover:underline">
-                View All Deals →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5">
-              {offerProducts.map((p) => (
-                <ProductCard key={p.id} product={p} whatsappNumber={whatsapp} />
-              ))}
-            </div>
-          </section>
-        )}
-
-
-        {/* 4. FEATURED HARDWARE CATALOG (5 Columns Product Grid matching screenshot) */}
+        {/* Section 2: Bathroom & Plumbing */}
         <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6 pb-2 border-b-2 border-[#4a154b]">
-            <h2 className="text-lg sm:text-xl font-black font-heading uppercase text-gray-900 dark:text-white flex items-center gap-2">
-              <span className="w-2 h-5 bg-[#4a154b] rounded-xs"></span>
-              <span>Featured Hardware Products</span>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold font-heading text-[#4a154b]">
+              Bathroom & Plumbing
             </h2>
-            <Link to="/products" className="text-xs font-bold text-[#4a154b] dark:text-amber-400 hover:underline">
-              View All Products →
+            <Link to="/products?category=bathroom-plumbing" className="text-xs font-bold text-[#4a154b] hover:underline flex items-center gap-1">
+              <span>View All</span>
+              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5">
-            {featuredProducts.map((p) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+            {featuredProducts.filter(p => p.category_slug === 'bathroom-plumbing' || p.category_id === 2).slice(0, 5).map((p) => (
+              <ProductCard key={p.id} product={p} whatsappNumber={whatsapp} />
+            ))}
+          </div>
+        </section>
+
+        {/* Section 3: Power Tools & Machinery */}
+        <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold font-heading text-[#4a154b]">
+              Power Tools & Machinery
+            </h2>
+            <Link to="/products?category=power-tools" className="text-xs font-bold text-[#4a154b] hover:underline flex items-center gap-1">
+              <span>View All</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+            {featuredProducts.filter(p => p.category_slug === 'power-tools' || p.category_id === 3).slice(0, 5).map((p) => (
+              <ProductCard key={p.id} product={p} whatsappNumber={whatsapp} />
+            ))}
+          </div>
+        </section>
+
+        {/* Section 4: Building Materials & Cement */}
+        <section className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold font-heading text-[#4a154b]">
+              Building Materials & Cement
+            </h2>
+            <Link to="/products?category=building-materials" className="text-xs font-bold text-[#4a154b] hover:underline flex items-center gap-1">
+              <span>View All</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+            {featuredProducts.filter(p => p.category_slug === 'building-materials' || p.category_id === 4).slice(0, 5).map((p) => (
               <ProductCard key={p.id} product={p} whatsappNumber={whatsapp} />
             ))}
           </div>
