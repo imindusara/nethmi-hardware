@@ -287,7 +287,7 @@ export default function GetQuote({ settings }) {
                   <button
                     type="button"
                     onClick={handleImportEnquiry}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-500/10 text-primary-600 dark:text-primary-400 hover:bg-orange-500/20 text-xs font-bold transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/10 text-primary-600 dark:text-primary-400 hover:bg-red-500/20 text-xs font-bold transition-colors"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Import {enquiryItems.length} items from Enquiry List</span>

@@ -40,17 +40,17 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-white dark:bg-charcoal-900 shadow-2xl flex flex-col border-l border-gray-200 dark:border-gray-800">
           
-          {/* Drawer Header (Deep Purple) */}
-          <div className="p-4 sm:p-5 border-b border-purple-900 bg-[#4a154b] text-white flex items-center justify-between">
+          {/* Drawer Header (Deep Red) */}
+          <div className="p-4 sm:p-5 border-b border-red-900 bg-[#dc2626] text-white flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-amber-400 text-purple-950 flex items-center justify-center font-bold">
+              <div className="w-8 h-8 rounded-lg bg-amber-400 text-red-950 flex items-center justify-center font-bold">
                 <ShoppingCart className="w-4 h-4" />
               </div>
               <div>
                 <h3 className="font-heading font-bold text-white text-base">
                   My Shopping Cart
                 </h3>
-                <p className="text-xs text-purple-200">
+                <p className="text-xs text-red-200">
                   {totalItemsCount} {totalItemsCount === 1 ? 'item' : 'items'} selected
                 </p>
               </div>
@@ -69,7 +69,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
           <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3">
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6">
-                <div className="w-16 h-16 rounded-full bg-purple-50 dark:bg-gray-800 flex items-center justify-center text-purple-400 mb-4">
+                <div className="w-16 h-16 rounded-full bg-red-50 dark:bg-gray-800 flex items-center justify-center text-red-500 mb-4">
                   <ShoppingCart className="w-8 h-8" />
                 </div>
                 <h4 className="font-heading font-bold text-gray-900 dark:text-white text-lg mb-1">
@@ -81,7 +81,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
                 <Link
                   to="/products"
                   onClick={closeDrawer}
-                  className="px-5 py-2.5 rounded-xl bg-[#4a154b] hover:bg-[#5b176b] text-white font-bold text-xs shadow-md"
+                  className="px-5 py-2.5 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs shadow-md"
                 >
                   Shop Hardware Catalog
                 </Link>
@@ -106,7 +106,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
                         <Link 
                           to={`/products/${item.slug}`} 
                           onClick={closeDrawer}
-                          className="font-bold text-xs text-gray-900 dark:text-white line-clamp-2 hover:text-[#4a154b]"
+                          className="font-bold text-xs text-gray-900 dark:text-white line-clamp-2 hover:text-[#dc2626]"
                         >
                           {item.name}
                         </Link>
@@ -141,7 +141,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
 
                         {/* Price */}
                         <div className="text-right">
-                          <span className="text-xs font-black text-[#4a154b] dark:text-purple-400 block font-heading">
+                          <span className="text-xs font-black text-[#dc2626] dark:text-red-400 block font-heading">
                             Rs. {subtotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                           </span>
                         </div>
@@ -158,7 +158,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
             <div className="p-4 sm:p-5 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-charcoal-950 space-y-3">
               <div className="flex justify-between items-baseline">
                 <span className="text-xs font-bold text-gray-500 uppercase">Cart Subtotal:</span>
-                <span className="text-xl font-black text-[#4a154b] dark:text-purple-400 font-heading">
+                <span className="text-xl font-black text-[#dc2626] dark:text-red-400 font-heading">
                   Rs. {estimatedTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </span>
               </div>
@@ -178,7 +178,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
                 <Link
                   to="/quote"
                   onClick={closeDrawer}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#4a154b] hover:bg-[#5b176b] text-white font-bold text-xs shadow-md transition-all active:scale-98"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-xs shadow-md transition-all active:scale-98"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Request Official Project Quote (BOQ)</span>
@@ -194,7 +194,7 @@ export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
                   <Link
                     to="/enquiry-list"
                     onClick={closeDrawer}
-                    className="font-bold text-[#4a154b] dark:text-amber-400 hover:underline flex items-center gap-1"
+                    className="font-bold text-[#dc2626] dark:text-amber-400 hover:underline flex items-center gap-1"
                   >
                     <span>Full Cart Page →</span>
                   </Link>

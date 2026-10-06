@@ -83,7 +83,7 @@ export default function ProductDetail({ settings }) {
         </h2>
         <Link
           to="/products"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#4a154b] text-white font-bold text-xs"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#dc2626] text-white font-bold text-xs"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Products</span>
@@ -132,13 +132,13 @@ export default function ProductDetail({ settings }) {
         
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-8 overflow-x-auto whitespace-nowrap">
-          <Link to="/" className="hover:text-[#4a154b]">Home</Link>
+          <Link to="/" className="hover:text-[#dc2626]">Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <Link to="/products" className="hover:text-[#4a154b]">Shop</Link>
+          <Link to="/products" className="hover:text-[#dc2626]">Shop</Link>
           {product.category_slug && (
             <>
               <ChevronRight className="w-3.5 h-3.5" />
-              <Link to={`/products?category=${product.category_slug}`} className="hover:text-[#4a154b]">
+              <Link to={`/products?category=${product.category_slug}`} className="hover:text-[#dc2626]">
                 {product.category_name}
               </Link>
             </>
@@ -169,7 +169,7 @@ export default function ProductDetail({ settings }) {
                   </span>
                 )}
                 {product.is_featured === 1 && (
-                  <span className="inline-flex items-center gap-1 bg-[#4a154b] text-amber-300 text-xs font-black px-3 py-1 rounded-lg shadow-md uppercase">
+                  <span className="inline-flex items-center gap-1 bg-[#dc2626] text-amber-300 text-xs font-black px-3 py-1 rounded-lg shadow-md uppercase">
                     Featured Item
                   </span>
                 )}
@@ -201,7 +201,7 @@ export default function ProductDetail({ settings }) {
             <div>
               
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#4a154b] dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 px-2.5 py-1 rounded-md">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#dc2626] dark:text-red-300 bg-red-50 dark:bg-red-950/40 px-2.5 py-1 rounded-md">
                   {product.category_name || 'Hardware'}
                 </span>
                 {product.brand && (
@@ -224,9 +224,9 @@ export default function ProductDetail({ settings }) {
                 </p>
               )}
 
-              {/* Price (Deep Purple from screenshot) */}
-              <div className="p-4 rounded-2xl bg-purple-50/50 dark:bg-charcoal-900 border border-purple-100 dark:border-gray-800 mb-6 flex items-baseline gap-3">
-                <span className="text-3xl font-black font-heading text-[#4a154b] dark:text-purple-400">
+              {/* Price (Red theme) */}
+              <div className="p-4 rounded-2xl bg-red-50/50 dark:bg-charcoal-900 border border-red-100 dark:border-gray-800 mb-6 flex items-baseline gap-3">
+                <span className="text-3xl font-black font-heading text-[#dc2626] dark:text-red-400">
                   Rs. {Number(unitPrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </span>
                 {hasOffer && (
@@ -278,7 +278,7 @@ export default function ProductDetail({ settings }) {
                         ? 'bg-green-600 text-white'
                         : isInEnquiry
                         ? 'bg-green-600 text-white'
-                        : 'bg-[#4a154b] hover:bg-[#5b176b] text-white'
+                        : 'bg-[#dc2626] hover:bg-[#b91c1c] text-white'
                     } ${isOut ? 'opacity-50 cursor-not-allowed' : 'active:scale-95'}`}
                   >
                     {added ? (
@@ -341,7 +341,7 @@ export default function ProductDetail({ settings }) {
         {/* Related Products */}
         {related.length > 0 && (
           <div>
-            <h3 className="text-xl font-black font-heading uppercase text-gray-900 dark:text-white mb-6 pb-2 border-b-2 border-[#4a154b]">
+            <h3 className="text-xl font-black font-heading uppercase text-gray-900 dark:text-white mb-6 pb-2 border-b-2 border-[#dc2626]">
               Related Products in {product.category_name}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">

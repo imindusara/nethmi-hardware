@@ -22,12 +22,12 @@ export default function FloatingWhatsApp({ whatsappNumber = '94771234567', phone
         </svg>
       </a>
 
-      {/* 2. Direct Call Action (Purple Icon) */}
+      {/* 2. Direct Call Action (Red Icon) */}
       <a
         href={`tel:${phone.replace(/[^0-9+]/g, '')}`}
         aria-label="Call Store Directly"
         title="Call Store Directly"
-        className="w-11 h-11 flex items-center justify-center text-[#4a154b] hover:bg-purple-50 transition-colors"
+        className="w-11 h-11 flex items-center justify-center text-[#dc2626] hover:bg-red-50 transition-colors"
       >
         <Phone className="w-5 h-5 fill-current" />
       </a>

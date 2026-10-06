@@ -52,22 +52,22 @@ export default function ProductCard({ product, whatsappNumber = '94771234567' })
       {/* 1. Yellow/Gold Framed Image Container (Exact Screenshot Style) */}
       <Link 
         to={`/products/${product.slug}`} 
-        className="relative block rounded-md border-2 border-amber-500 bg-white overflow-hidden aspect-square hover:border-[#4a154b] transition-colors"
+        className="relative block rounded-md border-2 border-amber-500 bg-white overflow-hidden aspect-square hover:border-[#dc2626] transition-colors"
       >
         {/* Circular Discount Percentage Badge in Top Left (e.g. -40%, -15%) */}
         {discountPercent ? (
-          <div className="absolute top-2 left-2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#4a154b] text-white text-[11px] sm:text-xs font-black flex items-center justify-center shadow-md">
+          <div className="absolute top-2 left-2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#dc2626] text-white text-[11px] sm:text-xs font-black flex items-center justify-center shadow-md">
             -{discountPercent}%
           </div>
         ) : product.is_featured === 1 ? (
-          <div className="absolute top-2 left-2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-500 text-purple-950 text-[10px] font-black flex items-center justify-center shadow-md uppercase">
+          <div className="absolute top-2 left-2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-500 text-red-950 text-[10px] font-black flex items-center justify-center shadow-md uppercase">
             HOT
           </div>
         ) : null}
 
         {/* Top Right Mini HardwareMart Watermark Logo */}
         <div className="absolute top-2 right-2 z-10 flex items-center gap-0.5 bg-white/95 px-1.5 py-0.5 rounded shadow-xs border border-amber-200">
-          <span className="text-[9px] font-black text-[#4a154b] leading-none">Hardware</span>
+          <span className="text-[9px] font-black text-[#dc2626] leading-none">Hardware</span>
           <span className="text-[9px] font-black text-amber-500 leading-none">Mart</span>
         </div>
 
@@ -90,26 +90,26 @@ export default function ProductCard({ product, whatsappNumber = '94771234567' })
       <div className="pt-2.5 pb-2 px-1 flex-1 flex flex-col justify-between">
         <div>
           {/* Title: Category: Product Name - Brand */}
-          <Link to={`/products/${product.slug}`} className="block group-hover:text-[#4a154b] transition-colors mb-1.5">
+          <Link to={`/products/${product.slug}`} className="block group-hover:text-[#dc2626] transition-colors mb-1.5">
             <h3 className="font-bold text-gray-900 text-xs sm:text-[13px] leading-tight line-clamp-2 min-h-[34px]">
               {product.name}
             </h3>
           </Link>
 
-          {/* Pricing: Struck-through Old Price + Deep Purple Sale Price */}
+          {/* Pricing: Struck-through Old Price + Red Sale Price */}
           <div className="flex items-baseline flex-wrap gap-1.5 mb-3">
             {hasOffer && (
               <span className="text-xs text-gray-400 line-through">
                 Rs. {Number(product.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </span>
             )}
-            <span className="text-xs sm:text-sm font-bold text-[#4a154b]">
+            <span className="text-xs sm:text-sm font-bold text-[#dc2626]">
               Rs. {Number(unitPrice).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
           </div>
         </div>
 
-        {/* 3. Deep Purple Pill Button: ADD TO CART */}
+        {/* 3. Red Pill Button: ADD TO CART */}
         <div className="space-y-1">
           <button
             onClick={handleAddToCart}
@@ -117,7 +117,7 @@ export default function ProductCard({ product, whatsappNumber = '94771234567' })
             className={`w-full py-2 px-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm ${
               added || isInEnquiry
                 ? 'bg-green-600 hover:bg-green-700 text-white'
-                : 'bg-[#4a154b] hover:bg-[#5b176b] text-white'
+                : 'bg-[#dc2626] hover:bg-[#b91c1c] text-white'
             } ${isOut ? 'opacity-50 cursor-not-allowed' : 'active:scale-98'}`}
           >
             {added ? (

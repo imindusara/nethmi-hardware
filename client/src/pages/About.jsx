@@ -28,14 +28,14 @@ export default function About({ settings }) {
       <div className="space-y-16 sm:space-y-24 pb-16">
         
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-purple-50 via-white to-white text-gray-900 py-16 lg:py-24 border-b border-gray-100">
+        <section className="relative overflow-hidden bg-gradient-to-b from-red-50 via-white to-white text-gray-900 py-16 lg:py-24 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 text-[#4a154b] text-xs font-bold uppercase tracking-wide mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 text-[#dc2626] text-xs font-bold uppercase tracking-wide mb-4">
               <Award className="w-3.5 h-3.5" />
               <span>Over 15 Years of Building Excellence</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black font-heading tracking-tight text-gray-900 mb-6">
-              Building Trust. Powering <span className="text-[#4a154b]">Creation</span>.
+              Building Trust. Powering <span className="text-[#dc2626]">Creation</span>.
             </h1>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               At Nethmi Hardware, we equip homeowners, carpenters, plumbers, electricians, and civil contractors with the highest-grade tools and construction supplies in Sri Lanka.
@@ -116,7 +116,7 @@ export default function About({ settings }) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-soft">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-primary-500 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-red-500/10 text-primary-500 flex items-center justify-center mb-6">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <h3 className="font-heading font-bold text-lg text-gray-900 dark:text-white mb-2">
@@ -128,7 +128,7 @@ export default function About({ settings }) {
               </div>
 
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-soft">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-primary-500 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-red-500/10 text-primary-500 flex items-center justify-center mb-6">
                   <Users className="w-6 h-6" />
                 </div>
                 <h3 className="font-heading font-bold text-lg text-gray-900 dark:text-white mb-2">
@@ -140,7 +140,7 @@ export default function About({ settings }) {
               </div>
 
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-soft">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 text-primary-500 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-red-500/10 text-primary-500 flex items-center justify-center mb-6">
                   <Clock className="w-6 h-6" />
                 </div>
                 <h3 className="font-heading font-bold text-lg text-gray-900 dark:text-white mb-2">
@@ -160,13 +160,13 @@ export default function About({ settings }) {
             <h3 className="text-2xl sm:text-3xl font-black font-heading mb-3">
               Need Assistance with Material Estimation?
             </h3>
-            <p className="text-sm text-orange-100 max-w-xl mx-auto mb-6">
+            <p className="text-sm text-red-100 max-w-xl mx-auto mb-6">
               Send us your architectural plan or list of required supplies and get a complete price breakdown within hours.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/quote"
-                className="px-6 py-3 rounded-xl bg-white text-primary-600 font-bold text-sm shadow-md hover:bg-orange-50 transition-all"
+                className="px-6 py-3 rounded-xl bg-white text-primary-600 font-bold text-sm shadow-md hover:bg-red-50 transition-all"
               >
                 Submit Quote Request
               </Link>

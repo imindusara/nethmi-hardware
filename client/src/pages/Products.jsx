@@ -141,13 +141,13 @@ export default function Products({ settings }) {
           
           {/* Breadcrumb (Home / Shop / Page X) */}
           <nav className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-            <Link to="/" className="hover:text-[#4a154b] dark:hover:text-amber-400">Home</Link>
+            <Link to="/" className="hover:text-[#dc2626] dark:hover:text-amber-400">Home</Link>
             <span>/</span>
-            <Link to="/products" className="hover:text-[#4a154b] dark:hover:text-amber-400 font-medium">Shop</Link>
+            <Link to="/products" className="hover:text-[#dc2626] dark:hover:text-amber-400 font-medium">Shop</Link>
             {selectedCategory && (
               <>
                 <span>/</span>
-                <span className="text-[#4a154b] dark:text-purple-300 font-semibold">{currentCategoryName}</span>
+                <span className="text-[#dc2626] dark:text-red-300 font-semibold">{currentCategoryName}</span>
               </>
             )}
             <span>/</span>
@@ -162,21 +162,21 @@ export default function Products({ settings }) {
               <button
                 onClick={() => setGridCols(3)}
                 title="3 Columns View"
-                className={`p-1.5 rounded-lg transition-colors ${gridCols === 3 ? 'bg-white dark:bg-charcoal-900 text-[#4a154b] dark:text-amber-400 shadow-xs' : 'text-gray-400 hover:text-gray-700'}`}
+                className={`p-1.5 rounded-lg transition-colors ${gridCols === 3 ? 'bg-white dark:bg-charcoal-900 text-[#dc2626] dark:text-amber-400 shadow-xs' : 'text-gray-400 hover:text-gray-700'}`}
               >
                 <Grid2X2 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setGridCols(4)}
                 title="4 Columns View"
-                className={`p-1.5 rounded-lg transition-colors ${gridCols === 4 ? 'bg-white dark:bg-charcoal-900 text-[#4a154b] dark:text-amber-400 shadow-xs' : 'text-gray-400 hover:text-gray-700'}`}
+                className={`p-1.5 rounded-lg transition-colors ${gridCols === 4 ? 'bg-white dark:bg-charcoal-900 text-[#dc2626] dark:text-amber-400 shadow-xs' : 'text-gray-400 hover:text-gray-700'}`}
               >
                 <Grid3X3 className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setGridCols(5)}
                 title="5 Columns View (Default)"
-                className={`p-1.5 rounded-lg transition-colors ${gridCols === 5 ? 'bg-white dark:bg-charcoal-900 text-[#4a154b] dark:text-amber-400 shadow-xs' : 'text-gray-400 hover:text-gray-700'}`}
+                className={`p-1.5 rounded-lg transition-colors ${gridCols === 5 ? 'bg-white dark:bg-charcoal-900 text-[#dc2626] dark:text-amber-400 shadow-xs' : 'text-gray-400 hover:text-gray-700'}`}
               >
                 <LayoutGrid className="w-4 h-4" />
               </button>
@@ -187,7 +187,7 @@ export default function Products({ settings }) {
               onClick={() => setFiltersOpen(!filtersOpen)}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border text-xs font-bold transition-all ${
                 filtersOpen || hasActiveFilters
-                  ? 'bg-[#4a154b] text-white border-[#4a154b]'
+                  ? 'bg-[#dc2626] text-white border-[#dc2626]'
                   : 'bg-white dark:bg-charcoal-900 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-50'
               }`}
             >
@@ -299,7 +299,7 @@ export default function Products({ settings }) {
               <div className="flex items-end">
                 <button
                   onClick={() => updateFilters({ minPrice, maxPrice })}
-                  className="w-full py-2 rounded-xl bg-[#4a154b] hover:bg-[#5b176b] text-white font-bold transition-colors"
+                  className="w-full py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold transition-colors"
                 >
                   Apply Filter
                 </button>
@@ -331,7 +331,7 @@ export default function Products({ settings }) {
             </p>
             <button
               onClick={handleClearFilters}
-              className="px-5 py-2 rounded-xl bg-[#4a154b] text-white text-xs font-bold"
+              className="px-5 py-2 rounded-xl bg-[#dc2626] text-white text-xs font-bold"
             >
               Reset Filters
             </button>
@@ -367,7 +367,7 @@ export default function Products({ settings }) {
                   onClick={() => updateFilters({ page: pNum })}
                   className={`w-9 h-9 rounded-xl text-xs font-bold transition-all ${
                     pagination.page === pNum
-                      ? 'bg-[#4a154b] text-white shadow-sm'
+                      ? 'bg-[#dc2626] text-white shadow-sm'
                       : 'bg-white dark:bg-charcoal-900 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50'
                   }`}
                 >

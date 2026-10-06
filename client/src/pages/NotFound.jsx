@@ -8,7 +8,7 @@ export default function NotFound() {
     <>
       <SEOHead title="404 - Page Not Found" description="The page you are looking for does not exist on Nethmi Hardware." />
       <div className="max-w-7xl mx-auto px-4 py-24 sm:py-32 flex flex-col items-center justify-center text-center">
-        <div className="w-20 h-20 rounded-3xl bg-orange-500/10 text-primary-500 flex items-center justify-center mb-6 shadow-md">
+        <div className="w-20 h-20 rounded-3xl bg-red-500/10 text-primary-500 flex items-center justify-center mb-6 shadow-md">
           <Wrench className="w-10 h-10 -rotate-45" />
         </div>
         <h1 className="text-6xl sm:text-8xl font-black font-heading text-gray-900 dark:text-white mb-4">

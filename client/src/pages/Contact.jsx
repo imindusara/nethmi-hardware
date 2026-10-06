@@ -107,7 +107,7 @@ export default function Contact({ settings }) {
 
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-primary-500 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 text-primary-500 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -117,7 +117,7 @@ export default function Contact({ settings }) {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-primary-500 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 text-primary-500 flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -147,7 +147,7 @@ export default function Contact({ settings }) {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-primary-500 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 text-primary-500 flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -157,7 +157,7 @@ export default function Contact({ settings }) {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-primary-500 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 text-primary-500 flex items-center justify-center shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
