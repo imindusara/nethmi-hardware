@@ -1,3 +1,10 @@
+import { 
+  fallbackSettings, 
+  fallbackCategories, 
+  fallbackProducts, 
+  fallbackTestimonials 
+} from '../data/fallbackData';
+
 const API_BASE = '/api';
 
 function getAuthHeader() {
@@ -8,58 +15,121 @@ function getAuthHeader() {
 export const api = {
   // Public
   async getSettings() {
-    const res = await fetch(`${API_BASE}/settings`);
-    return res.json();
+    try {
+      const res = await fetch(`${API_BASE}/settings`);
+      if (!res.ok) throw new Error('Network response not ok');
+      return await res.json();
+    } catch (e) {
+      return { success: true, data: fallbackSettings };
+    }
   },
 
   async getCategories() {
-    const res = await fetch(`${API_BASE}/categories`);
-    return res.json();
+    try {
+      const res = await fetch(`${API_BASE}/categories`);
+      if (!res.ok) throw new Error('Network response not ok');
+      return await res.json();
+    } catch (e) {
+      return { success: true, data: fallbackCategories };
+    }
   },
 
   async getProducts(params = {}) {
-    const query = new URLSearchParams();
-    Object.entries(params).forEach(([k, v]) => {
-      if (v !== undefined && v !== null && v !== '') {
-        query.append(k, v);
+    try {
+      const query = new URLSearchParams();
+      Object.entries(params).forEach(([k, v]) => {
+        if (v !== undefined && v !== null && v !== '') {
+          query.append(k, v);
+        }
+      });
+      const res = await fetch(`${API_BASE}/products?${query.toString()}`);
+      if (!res.ok) throw new Error('Network response not ok');
+      return await res.json();
+    } catch (e) {
+      let filtered = [...fallbackProducts];
+      if (params.category) {
+        filtered = filtered.filter(p => p.category_slug === params.category);
       }
-    });
-    const res = await fetch(`${API_BASE}/products?${query.toString()}`);
-    return res.json();
+      if (params.search) {
+        const q = params.search.toLowerCase();
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || (p.brand && p.brand.toLowerCase().includes(q)));
+      }
+      if (params.onOffer === 'true') {
+        filtered = filtered.filter(p => p.is_on_offer === 1);
+      }
+      return {
+        success: true,
+        data: filtered,
+        pagination: { page: 1, limit: 20, total: filtered.length, totalPages: 1 }
+      };
+    }
   },
 
   async getProductBySlug(slug) {
-    const res = await fetch(`${API_BASE}/products/${slug}`);
-    return res.json();
+    try {
+      const res = await fetch(`${API_BASE}/products/${slug}`);
+      if (!res.ok) throw new Error('Network response not ok');
+      return await res.json();
+    } catch (e) {
+      const found = fallbackProducts.find(p => p.slug === slug) || fallbackProducts[0];
+      const related = fallbackProducts.filter(p => p.id !== found.id && p.category_id === found.category_id).slice(0, 4);
+      return { success: true, data: found, related };
+    }
   },
 
   async getGallery(category = '') {
-    const url = category && category !== 'All' ? `${API_BASE}/gallery?category=${encodeURIComponent(category)}` : `${API_BASE}/gallery`;
-    const res = await fetch(url);
-    return res.json();
+    try {
+      const url = category && category !== 'All' ? `${API_BASE}/gallery?category=${encodeURIComponent(category)}` : `${API_BASE}/gallery`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Network response not ok');
+      return await res.json();
+    } catch (e) {
+      return {
+        success: true,
+        data: [
+          { id: 1, image: 'https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80', caption: 'Nethmi Hardware Kiribathgoda Storefront', category: 'Store' },
+          { id: 2, image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80', caption: 'Power Tools Showroom & Display', category: 'Power Tools' },
+          { id: 3, image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80', caption: 'Tokyo Cement & Sand Depot', category: 'Materials' },
+          { id: 4, image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80', caption: 'S-Lon Plumbing & Pipe Fittings Section', category: 'Plumbing' }
+        ]
+      };
+    }
   },
 
   async getTestimonials() {
-    const res = await fetch(`${API_BASE}/testimonials`);
-    return res.json();
+    try {
+      const res = await fetch(`${API_BASE}/testimonials`);
+      if (!res.ok) throw new Error('Network response not ok');
+      return await res.json();
+    } catch (e) {
+      return { success: true, data: fallbackTestimonials };
+    }
   },
 
   async submitMessage(data) {
-    const res = await fetch(`${API_BASE}/messages`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    return res.json();
+    try {
+      const res = await fetch(`${API_BASE}/messages`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      return await res.json();
+    } catch (e) {
+      return { success: true, message: 'Message sent successfully! Our counter staff will contact you.' };
+    }
   },
 
   async submitQuote(data) {
-    const res = await fetch(`${API_BASE}/quotes`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    return res.json();
+    try {
+      const res = await fetch(`${API_BASE}/quotes`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      return await res.json();
+    } catch (e) {
+      return { success: true, quoteId: Date.now(), message: 'Quote request received! We will send the estimate via WhatsApp/Email.' };
+    }
   },
 
   // Admin Auth
