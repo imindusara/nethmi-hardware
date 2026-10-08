@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useEnquiry } from '../context/EnquiryContext';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 export default function EnquiryList({ settings }) {
   const { 
@@ -28,14 +29,14 @@ export default function EnquiryList({ settings }) {
   const [customerName, setCustomerName] = useState('');
   const [deliveryNeeded, setDeliveryNeeded] = useState(false);
 
-  const whatsapp = settings?.whatsapp || '94771234567';
+  const whatsapp = settings?.whatsapp || siteConfig.whatsapp;
   const whatsappUrl = generateWhatsAppUrl(whatsapp, customerName, deliveryNeeded);
 
   return (
     <>
       <SEOHead 
         title="My Enquiry List"
-        description="Review your selected hardware materials, calculate estimated costs, and generate an instant WhatsApp enquiry for Nethmi Hardware."
+        description={`Review your selected hardware materials, calculate estimated costs, and generate an instant WhatsApp enquiry for ${siteConfig.brandName}.`}
         settings={settings}
       />
 

@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import { api } from '../services/api';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
+import { fallbackCategories } from '../data/fallbackData';
 
 const iconMap = {
   Wrench: Wrench,
@@ -27,14 +29,16 @@ const iconMap = {
 };
 
 export default function Categories({ settings }) {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState(fallbackCategories);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
       try {
         const res = await api.getCategories();
-        if (res.success) setCategories(res.data);
+        if (res.success && Array.isArray(res.data) && res.data.length > 0) {
+          setCategories(res.data);
+        }
       } catch (err) {
         console.error('Error fetching categories:', err);
       } finally {
@@ -48,7 +52,7 @@ export default function Categories({ settings }) {
     <>
       <SEOHead 
         title="Hardware Product Categories"
-        description="Explore 8 major departments of Nethmi Hardware: Power Tools, Cement & Steel, Hand Tools, Plumbing, Electrical, Paints, Fasteners and Safety Gear."
+        description={`Explore 8 major departments of ${siteConfig.brandName}: Power Tools, Cement & Steel, Hand Tools, Plumbing, Electrical, Paints, Fasteners and Safety Gear.`}
         settings={settings}
       />
 

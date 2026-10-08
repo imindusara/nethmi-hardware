@@ -42,13 +42,15 @@ export default function AdminLogin() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="sm:mx-auto sm:w-full sm:max-w-md text-center relative z-10">
-          <Link to="/" className="inline-flex items-center gap-3 group mb-4">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary-600 to-primary-500 text-white flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:scale-105 transition-transform">
-              <Wrench className="w-6 h-6 -rotate-45" />
-            </div>
+          <Link to="/" className="inline-flex items-center justify-center group mb-4">
+            <img
+              src="/logo.png"
+              alt="Nethmi Hardware Logo"
+              className="w-20 h-20 object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
+            />
           </Link>
           <h2 className="text-2xl sm:text-3xl font-black font-heading text-white">
-            Nethmi Hardware
+            Nethmi Online Tool Shop
           </h2>
           <p className="text-xs text-gray-400 mt-1 uppercase tracking-widest font-semibold">
             Store Management Portal

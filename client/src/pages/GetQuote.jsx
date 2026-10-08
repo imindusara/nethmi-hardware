@@ -14,10 +14,12 @@ import {
 import { api } from '../services/api';
 import { useEnquiry } from '../context/EnquiryContext';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 const UNIT_OPTIONS = ['Pieces', 'Bags (50kg)', 'Meters', 'Feet', 'Liters', 'Kilograms (kg)', 'Boxes', 'Bundles', 'Rolls'];
 
 export default function GetQuote({ settings }) {
+  const brandName = siteConfig.brandName;
   const { items: enquiryItems, generateWhatsAppUrl } = useEnquiry();
 
   const [customer, setCustomer] = useState({
@@ -38,7 +40,7 @@ export default function GetQuote({ settings }) {
   const [errorMsg, setErrorMsg] = useState('');
   const [submittedQuoteId, setSubmittedQuoteId] = useState(null);
 
-  const whatsapp = settings?.whatsapp || '94771234567';
+  const whatsapp = settings?.whatsapp || siteConfig.whatsapp;
 
   // Import items from Enquiry List
   const handleImportEnquiry = () => {
@@ -125,7 +127,7 @@ export default function GetQuote({ settings }) {
   // WhatsApp formatted quote message
   const generateDirectQuoteWhatsAppUrl = () => {
     const validRows = quoteRows.filter(r => r.item_name && r.item_name.trim());
-    let msg = `*Hello Nethmi Hardware — Project Quote Request* 📋\n`;
+    let msg = `*Hello ${brandName} — Project Quote Request* 📋\n`;
     msg += `Name: *${customer.name || 'Customer'}*\n`;
     msg += `Phone: *${customer.phone || 'N/A'}*\n`;
     if (customer.delivery_needed) msg += `🚚 *Job-site Delivery Needed*\n`;

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { siteConfig } from '../config/siteConfig';
 
 const EnquiryContext = createContext();
 
@@ -80,10 +81,10 @@ export function EnquiryProvider({ children }) {
     return sum + unitPrice * item.quantity;
   }, 0);
 
-  const generateWhatsAppUrl = (whatsappNumber = '94771234567', customerName = '', deliveryNeeded = false) => {
+  const generateWhatsAppUrl = (whatsappNumber = siteConfig.whatsapp, customerName = '', deliveryNeeded = false) => {
     if (items.length === 0) return `https://wa.me/${whatsappNumber}`;
 
-    let msg = `*Hello Nethmi Hardware!* 🔨\n`;
+    let msg = `*Hello ${siteConfig.brandName}!* 🔨\n`;
     if (customerName) {
       msg += `My Name: *${customerName}*\n`;
     }

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { api } from '../services/api';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 export default function Gallery({ settings }) {
   const [items, setItems] = useState([]);
@@ -50,7 +51,7 @@ export default function Gallery({ settings }) {
     <>
       <SEOHead 
         title="Store & Products Photo Gallery"
-        description="Take a visual tour of Nethmi Hardware store, power tool showroom, construction materials warehouse, and delivery fleet."
+        description={`Take a visual tour of ${siteConfig.brandName} store, power tool showroom, construction materials warehouse, and delivery fleet.`}
         settings={settings}
       />
 
@@ -127,7 +128,7 @@ export default function Gallery({ settings }) {
                       </span>
                     )}
                     <p className="text-xs font-semibold text-white line-clamp-2">
-                      {item.caption || 'Nethmi Hardware Store'}
+                      {item.caption || `${siteConfig.brandName} Showroom`}
                     </p>
                   </div>
                 </div>

@@ -1,9 +1,10 @@
 export const fallbackSettings = {
-  site_name: 'Nethmi Hardware',
+  site_name: 'Nethmi Online Tool Shop',
   tagline: 'Everything You Need to Build, Fix and Create',
-  phone: '+94 77 123 4567',
+  logo_url: '/logo.png',
+  phone: '+94 78 999 1624',
   phone_secondary: '+94 11 234 5678',
-  whatsapp: '94771234567',
+  whatsapp: '94789991624',
   email: 'info@nethmihardware.com',
   address: 'No. 142, Kandy Road, Kiribathgoda, Sri Lanka',
   opening_hours: 'Mon - Sat: 7:30 AM - 6:30 PM | Sunday: 8:00 AM - 1:00 PM',
@@ -26,7 +27,7 @@ export const fallbackCategories = [
     description: 'Waterproofing chemicals, M-Seal epoxy, Hasky paint brushes, and Dulux emulsions.',
     image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80',
     icon: 'Paintbrush',
-    product_count: 5
+    product_count: 14
   },
   {
     id: 2,
@@ -35,7 +36,7 @@ export const fallbackCategories = [
     description: 'S-Lon PVC pipes, brass ball valves, water pumps, overhead tanks, and tap fittings.',
     image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80',
     icon: 'Droplets',
-    product_count: 5
+    product_count: 18
   },
   {
     id: 3,
@@ -44,7 +45,7 @@ export const fallbackCategories = [
     description: 'Heavy duty cordless drills, angle grinders, cut-off saws, and demolition hammers.',
     image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
     icon: 'Wrench',
-    product_count: 5
+    product_count: 22
   },
   {
     id: 4,
@@ -53,16 +54,43 @@ export const fallbackCategories = [
     description: 'SLS-certified Tokyo cement, Lanwa steel rebar, binding wire, and sand blocks.',
     image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
     icon: 'Building',
-    product_count: 5
+    product_count: 16
   },
   {
     id: 5,
-    name: 'Fasteners, Electrical & Safety',
-    slug: 'fasteners-electrical',
-    description: 'Kelani cables, hex bolts, screws, safety helmets, boots, and drill accessories.',
+    name: 'Electrical & Lighting',
+    slug: 'electrical',
+    description: 'Kelani & ACL cables, Orange Electric switches, circuit breakers, and conduit accessories.',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
     icon: 'Zap',
-    product_count: 5
+    product_count: 19
+  },
+  {
+    id: 6,
+    name: 'Hand Tools & Hardware',
+    slug: 'hand-tools',
+    description: 'Claw hammers, screwdriver sets, measuring tapes, spirit levels, and pliers.',
+    image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80',
+    icon: 'Hammer',
+    product_count: 15
+  },
+  {
+    id: 7,
+    name: 'Fasteners, Screws & Nails',
+    slug: 'fasteners',
+    description: 'GI roofing screws, rawl plugs, steel anchor bolts, drywall screws, and wire nails.',
+    image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=800&q=80',
+    icon: 'Nut',
+    product_count: 28
+  },
+  {
+    id: 8,
+    name: 'Safety Equipment & Gear',
+    slug: 'safety-gear',
+    description: 'Industrial safety helmets, steel-toe boots, high-visibility vests, and heavy work gloves.',
+    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80',
+    icon: 'ShieldCheck',
+    product_count: 12
   }
 ];
 

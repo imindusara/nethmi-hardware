@@ -65,6 +65,17 @@ export const api = {
     }
   },
 
+  async getFeaturedProducts() {
+    try {
+      const res = await fetch(`${API_BASE}/products?limit=50`);
+      if (!res.ok) throw new Error('Network response not ok');
+      const json = await res.json();
+      return { success: true, data: (json.data && json.data.length > 0) ? json.data : fallbackProducts };
+    } catch (e) {
+      return { success: true, data: fallbackProducts };
+    }
+  },
+
   async getProductBySlug(slug) {
     try {
       const res = await fetch(`${API_BASE}/products/${slug}`);

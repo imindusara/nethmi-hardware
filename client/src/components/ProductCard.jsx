@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ShoppingCart, 
   Check, 
-  MessageSquare
+  MessageSquare,
+  ShoppingCart
 } from 'lucide-react';
 import { useEnquiry } from '../context/EnquiryContext';
+import { siteConfig } from '../config/siteConfig';
 
-export default function ProductCard({ product, whatsappNumber = '94771234567' }) {
+export default function ProductCard({ product, whatsappNumber }) {
   const { addItem, items } = useEnquiry();
   const [added, setAdded] = useState(false);
 
@@ -40,42 +41,43 @@ export default function ProductCard({ product, whatsappNumber = '94771234567' })
 
   // WhatsApp link for this product
   const productUrl = `${window.location.origin}/products/${product.slug}`;
+  const brandName = siteConfig.brandName;
   const waMsg = encodeURIComponent(
-    `Hello Nethmi Hardware! I am interested in purchasing *${product.name}* (Price: Rs. ${Number(unitPrice).toLocaleString()}, SKU: ${product.sku || 'N/A'}). Is it available in stock? Link: ${productUrl}`
+    `Hello ${brandName}! I am interested in purchasing *${product.name}* (Price: Rs. ${Number(unitPrice).toLocaleString()}, SKU: ${product.sku || 'N/A'}). Is it available in stock? Link: ${productUrl}`
   );
-  const cleanNumber = whatsappNumber.replace(/[^0-9]/g, '');
+  const cleanNumber = (whatsappNumber || siteConfig.whatsapp).replace(/[^0-9]/g, '');
   const directWhatsAppUrl = `https://wa.me/${cleanNumber}?text=${waMsg}`;
 
   return (
-    <div className="group flex flex-col bg-white rounded-lg transition-all duration-200 hover:shadow-lg p-1.5">
+    <div className="group flex flex-col bg-white dark:bg-charcoal-900 rounded-2xl border border-gray-200 dark:border-gray-800 transition-all duration-200 hover:shadow-xl p-2.5">
       
-      {/* 1. Yellow/Gold Framed Image Container (Exact Screenshot Style) */}
+      {/* 1. Yellow/Gold Framed Image Container */}
       <Link 
         to={`/products/${product.slug}`} 
-        className="relative block rounded-md border-2 border-amber-500 bg-white overflow-hidden aspect-square hover:border-[#dc2626] transition-colors"
+        className="relative block rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-charcoal-950 overflow-hidden aspect-square hover:border-[#dc2626] transition-colors"
       >
-        {/* Circular Discount Percentage Badge in Top Left (e.g. -40%, -15%) */}
+        {/* Discount Percentage Badge in Top Left */}
         {discountPercent ? (
           <div className="absolute top-2 left-2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#dc2626] text-white text-[11px] sm:text-xs font-black flex items-center justify-center shadow-md">
             -{discountPercent}%
           </div>
         ) : product.is_featured === 1 ? (
-          <div className="absolute top-2 left-2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-500 text-red-950 text-[10px] font-black flex items-center justify-center shadow-md uppercase">
-            HOT
+          <div className="absolute top-2 left-2 z-10 px-2 py-0.5 rounded-md bg-amber-400 text-gray-950 text-[10px] font-black shadow-md uppercase">
+            Popular
           </div>
         ) : null}
 
-        {/* Top Right Mini HardwareMart Watermark Logo */}
-        <div className="absolute top-2 right-2 z-10 flex items-center gap-0.5 bg-white/95 px-1.5 py-0.5 rounded shadow-xs border border-amber-200">
-          <span className="text-[9px] font-black text-[#dc2626] leading-none">Hardware</span>
-          <span className="text-[9px] font-black text-amber-500 leading-none">Mart</span>
+        {/* Top Right Mini Brand Watermark Badge */}
+        <div className="absolute top-2 right-2 z-10 flex items-center gap-1 bg-white/95 dark:bg-charcoal-900/95 px-2 py-0.5 rounded-md shadow-xs border border-gray-200 dark:border-gray-700">
+          <span className="text-[9px] font-black text-[#dc2626] leading-none">Nethmi</span>
+          <span className="text-[9px] font-bold text-gray-700 dark:text-gray-300 leading-none">Tools</span>
         </div>
 
-        {/* Product Image */}
+        {/* Product Image with lazy loading and meaningful alt */}
         <div className="w-full h-full p-4 flex items-center justify-center">
           <img
             src={displayImage}
-            alt={product.name}
+            alt={`${product.name} - Genuine Hardware Product`}
             loading="lazy"
             className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200"
             onError={(e) => {
@@ -87,63 +89,68 @@ export default function ProductCard({ product, whatsappNumber = '94771234567' })
       </Link>
 
       {/* 2. Product Information Area */}
-      <div className="pt-2.5 pb-2 px-1 flex-1 flex flex-col justify-between">
+      <div className="pt-3 pb-1 px-1 flex-1 flex flex-col justify-between">
         <div>
-          {/* Title: Category: Product Name - Brand */}
+          {/* Title */}
           <Link to={`/products/${product.slug}`} className="block group-hover:text-[#dc2626] transition-colors mb-1.5">
-            <h3 className="font-bold text-gray-900 text-xs sm:text-[13px] leading-tight line-clamp-2 min-h-[34px]">
+            <h3 className="font-bold text-gray-900 dark:text-white text-xs sm:text-[13px] leading-snug line-clamp-2 min-h-[34px]">
               {product.name}
             </h3>
           </Link>
 
-          {/* Pricing: Struck-through Old Price + Red Sale Price */}
+          {/* Pricing */}
           <div className="flex items-baseline flex-wrap gap-1.5 mb-3">
             {hasOffer && (
               <span className="text-xs text-gray-400 line-through">
-                Rs. {Number(product.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                Rs. {Number(product.price).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
               </span>
             )}
-            <span className="text-xs sm:text-sm font-bold text-[#dc2626]">
-              Rs. {Number(unitPrice).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            <span className="text-xs sm:text-sm font-black text-[#dc2626] font-heading">
+              Rs. {Number(unitPrice).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
             </span>
           </div>
         </div>
 
-        {/* 3. Red Pill Button: ADD TO CART */}
-        <div className="space-y-1">
+        {/* 3. Action Buttons with 44px Minimum Touch Target */}
+        <div className="space-y-1.5">
           <button
             onClick={handleAddToCart}
             disabled={isOut}
-            className={`w-full py-2 px-3 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm ${
+            aria-label={`Add ${product.name} to cart`}
+            className={`w-full min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-sm ${
               added || isInEnquiry
                 ? 'bg-green-600 hover:bg-green-700 text-white'
                 : 'bg-[#dc2626] hover:bg-[#b91c1c] text-white'
-            } ${isOut ? 'opacity-50 cursor-not-allowed' : 'active:scale-98'}`}
+            } ${isOut ? 'opacity-50 cursor-not-allowed' : 'active:scale-95'}`}
           >
             {added ? (
               <>
-                <Check className="w-3.5 h-3.5" />
-                <span>ADDED</span>
+                <Check className="w-4 h-4" />
+                <span>Added to Cart</span>
               </>
             ) : isInEnquiry ? (
               <>
-                <Check className="w-3.5 h-3.5" />
-                <span>IN CART ({items.find(i => i.id === product.id)?.quantity})</span>
+                <Check className="w-4 h-4" />
+                <span>In Cart ({items.find(i => i.id === product.id)?.quantity})</span>
               </>
             ) : (
-              <span>ADD TO CART</span>
+              <>
+                <ShoppingCart className="w-3.5 h-3.5" />
+                <span>Add to Cart</span>
+              </>
             )}
           </button>
 
-          {/* Quick WhatsApp Inquiry */}
+          {/* Direct WhatsApp Instant Quote Button */}
           <a
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Inquire about ${product.name} on WhatsApp`}
-            className="w-full py-0.5 text-center block text-[10px] font-semibold text-green-600 hover:underline"
+            aria-label={`Order or inquire about ${product.name} on WhatsApp`}
+            className="w-full min-h-[36px] py-1.5 text-center flex items-center justify-center gap-1.5 rounded-lg text-[11px] font-bold text-green-700 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-950/40 transition-colors"
           >
-            💬 Enquire on WhatsApp
+            <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
+            <span>Ask Price on WhatsApp</span>
           </a>
         </div>
 
@@ -152,4 +159,3 @@ export default function ProductCard({ product, whatsappNumber = '94771234567' })
     </div>
   );
 }
-

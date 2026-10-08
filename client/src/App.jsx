@@ -7,6 +7,7 @@ import { useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import MobileBottomNav from './components/MobileBottomNav';
 import EnquiryDrawer from './components/EnquiryDrawer';
 import AdminSidebar from './components/AdminSidebar';
 
@@ -96,8 +97,9 @@ export default function App() {
             </Routes>
           </main>
           <Footer settings={settings} />
-          <FloatingWhatsApp whatsappNumber={settings?.whatsapp || '94771234567'} />
-          <EnquiryDrawer whatsappNumber={settings?.whatsapp || '94771234567'} />
+          <FloatingWhatsApp whatsappNumber={settings?.whatsapp} phone={settings?.phone} />
+          <MobileBottomNav phone={settings?.phone} whatsappNumber={settings?.whatsapp} />
+          <EnquiryDrawer whatsappNumber={settings?.whatsapp} />
         </>
       ) : isLoginPage ? (
         /* Admin Login */

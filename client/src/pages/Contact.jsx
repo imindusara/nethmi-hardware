@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { api } from '../services/api';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 export default function Contact({ settings }) {
   const [formData, setFormData] = useState({
@@ -26,13 +27,14 @@ export default function Contact({ settings }) {
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const phone = settings?.phone || '+94 77 123 4567';
-  const secondaryPhone = settings?.phone_secondary || '+94 11 234 5678';
-  const whatsapp = settings?.whatsapp || '94771234567';
-  const email = settings?.email || 'info@nethmihardware.com';
-  const address = settings?.address || 'No. 142, Kandy Road, Kiribathgoda, Sri Lanka';
-  const hours = settings?.opening_hours || 'Mon - Sat: 7:30 AM - 6:30 PM | Sunday: 8:00 AM - 1:00 PM';
-  const mapEmbed = settings?.google_map_embed || 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63364.305943485015!2d79.8893632!3d6.9748682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae257f864f7a77d%3A0x6b7a59960ff14ab2!2sKiribathgoda!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk';
+  const brandName = siteConfig.brandName;
+  const phone = settings?.phone || siteConfig.phone;
+  const secondaryPhone = settings?.phone_secondary || siteConfig.phoneSecondary;
+  const whatsapp = settings?.whatsapp || siteConfig.whatsapp;
+  const email = settings?.email || siteConfig.email;
+  const address = settings?.address || siteConfig.address;
+  const hours = settings?.opening_hours || siteConfig.openingHours;
+  const mapEmbed = settings?.google_map_embed || siteConfig.googleMapEmbed;
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -74,7 +76,7 @@ export default function Contact({ settings }) {
     <>
       <SEOHead 
         title="Contact & Store Location"
-        description="Visit Nethmi Hardware store in Kiribathgoda, Sri Lanka or send an inquiry. Direct phone, WhatsApp quote support, and store opening hours."
+        description={`Visit ${brandName} store in Kiribathgoda, Sri Lanka or send an inquiry. Direct phone, WhatsApp quote support, and store opening hours.`}
         settings={settings}
       />
 
@@ -87,7 +89,7 @@ export default function Contact({ settings }) {
             <span>Get in Touch With Our Counter Staff</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black font-heading text-gray-900 dark:text-white mb-4">
-            Contact Nethmi Hardware
+            Contact {brandName}
           </h1>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             Have a question about material availability, bulk delivery schedules, or pricing? Call us, chat on WhatsApp, or send a message below.
@@ -300,7 +302,7 @@ export default function Contact({ settings }) {
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Send Inquiry to Nethmi Hardware</span>
+                      <span>Send Inquiry to {brandName}</span>
                     </>
                   )}
                 </button>

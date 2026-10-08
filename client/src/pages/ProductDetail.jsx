@@ -18,8 +18,10 @@ import { api } from '../services/api';
 import { useEnquiry } from '../context/EnquiryContext';
 import ProductCard from '../components/ProductCard';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 export default function ProductDetail({ settings }) {
+  const brandName = siteConfig.brandName;
   const { slug } = useParams();
   const { addItem, items } = useEnquiry();
   const [product, setProduct] = useState(null);
@@ -30,8 +32,8 @@ export default function ProductDetail({ settings }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const phone = settings?.phone || '+94 77 123 4567';
-  const whatsapp = settings?.whatsapp || '94771234567';
+  const phone = settings?.phone || siteConfig.phone;
+  const whatsapp = settings?.whatsapp || siteConfig.whatsapp;
 
   useEffect(() => {
     async function loadProduct() {
@@ -109,7 +111,7 @@ export default function ProductDetail({ settings }) {
 
   const currentUrl = window.location.href;
   const waMsg = encodeURIComponent(
-    `Hello Nethmi Hardware! I am inquiring about *${product.name}* (Price: Rs. ${Number(unitPrice).toLocaleString()}, SKU: ${product.sku || 'N/A'}, Qty: ${quantity}). Please let me know stock availability. Link: ${currentUrl}`
+    `Hello ${brandName}! I am inquiring about *${product.name}* (Price: Rs. ${Number(unitPrice).toLocaleString()}, SKU: ${product.sku || 'N/A'}, Qty: ${quantity}). Please let me know stock availability. Link: ${currentUrl}`
   );
   const cleanNumber = whatsapp.replace(/[^0-9]/g, '');
   const directWhatsAppUrl = `https://wa.me/${cleanNumber}?text=${waMsg}`;

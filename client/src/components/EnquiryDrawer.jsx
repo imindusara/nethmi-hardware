@@ -11,8 +11,9 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { useEnquiry } from '../context/EnquiryContext';
+import { siteConfig } from '../config/siteConfig';
 
-export default function EnquiryDrawer({ whatsappNumber = '94771234567' }) {
+export default function EnquiryDrawer({ whatsappNumber = siteConfig.whatsapp }) {
   const { 
     items, 
     isDrawerOpen, 

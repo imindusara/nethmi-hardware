@@ -13,15 +13,17 @@ import {
   Hammer
 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 export default function About({ settings }) {
-  const phone = settings?.phone || '+94 77 123 4567';
+  const brandName = siteConfig.brandName;
+  const phone = settings?.phone || siteConfig.phone;
 
   return (
     <>
       <SEOHead 
         title="About Us"
-        description="Learn more about Nethmi Hardware — Sri Lanka’s premier hardware supplier providing authentic building materials, power tools, and industrial equipment."
+        description={`Learn more about ${brandName} — Sri Lanka’s premier tool and hardware supplier providing authentic power tools and building equipment.`}
         settings={settings}
       />
 
@@ -38,7 +40,7 @@ export default function About({ settings }) {
               Building Trust. Powering <span className="text-[#dc2626]">Creation</span>.
             </h1>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-              At Nethmi Hardware, we equip homeowners, carpenters, plumbers, electricians, and civil contractors with the highest-grade tools and construction supplies in Sri Lanka.
+              At {brandName}, we equip homeowners, carpenters, plumbers, electricians, and civil contractors with the highest-grade tools and construction supplies in Sri Lanka.
             </p>
           </div>
         </section>
@@ -50,18 +52,20 @@ export default function About({ settings }) {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
               <img
                 src="https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=1000&q=80"
-                alt="Nethmi Hardware Storefront and Showroom"
+                alt={`${brandName} Storefront and Showroom`}
                 className="w-full h-full object-cover aspect-[4/3]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-transparent to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 dark:bg-charcoal-900/95 backdrop-blur-md border border-gray-200 dark:border-gray-800 flex items-center justify-between">
                 <div>
-                  <h4 className="font-heading font-bold text-sm text-gray-900 dark:text-white">Nethmi Hardware Kiribathgoda</h4>
+                  <h4 className="font-heading font-bold text-sm text-gray-900 dark:text-white">{brandName} Kiribathgoda</h4>
                   <p className="text-xs text-gray-500">Retail Outlet & Materials Depot</p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-primary-500 text-white flex items-center justify-center">
-                  <Wrench className="w-5 h-5" />
-                </div>
+                <img
+                  src="/logo.png"
+                  alt={`${brandName} Emblem`}
+                  className="w-12 h-12 object-contain drop-shadow"
+                />
               </div>
             </div>
 
@@ -70,10 +74,10 @@ export default function About({ settings }) {
                 Our Story & Commitment
               </span>
               <h2 className="text-2xl sm:text-4xl font-black font-heading text-gray-900 dark:text-white leading-tight">
-                From a Neighborhood Store to Sri Lanka's Preferred Hardware Supplier
+                From a Neighborhood Store to Sri Lanka's Preferred Tool & Hardware Supplier
               </h2>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                Founded with a mission to eliminate low-quality, uncertified hardware products, Nethmi Hardware has grown into a trusted wholesale and retail destination. We stock only SLS and ISO certified materials from internationally acclaimed manufacturers.
+                Founded with a mission to eliminate low-quality, uncertified hardware products, {brandName} has grown into a trusted wholesale and retail destination. We stock only SLS and ISO certified materials from internationally acclaimed manufacturers.
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                 Whether you need a single screwdriver for a quick DIY repair or 500 bags of Tokyo Cement delivered directly to your commercial building site, our team ensures prompt service and transparent pricing every time.

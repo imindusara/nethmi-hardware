@@ -18,13 +18,15 @@ import {
 import { api } from '../services/api';
 import ProductCard from '../components/ProductCard';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
+import { fallbackCategories, fallbackProducts } from '../data/fallbackData';
 
 export default function Products({ settings }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [pagination, setPagination] = useState({ page: 1, totalPages: 1, total: 0 });
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState(fallbackProducts);
+  const [categories, setCategories] = useState(fallbackCategories);
+  const [pagination, setPagination] = useState({ page: 1, totalPages: 1, total: fallbackProducts.length });
+  const [loading, setLoading] = useState(false);
   
   // Grid Columns View (3, 4, 5 columns)
   const [gridCols, setGridCols] = useState(5);
@@ -342,7 +344,7 @@ export default function Products({ settings }) {
               <ProductCard 
                 key={product.id} 
                 product={product} 
-                whatsappNumber={settings?.whatsapp || '94771234567'}
+                whatsappNumber={settings?.whatsapp || siteConfig.whatsapp}
               />
             ))}
           </div>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { siteConfig } from '../config/siteConfig';
 
 export default function SEOHead({ 
   title, 
@@ -7,25 +8,41 @@ export default function SEOHead({
   productData = null, 
   settings = null 
 }) {
-  const siteName = 'Nethmi Hardware';
-  const fullTitle = title ? `${title} | ${siteName}` : `${siteName} | Everything You Need to Build, Fix and Create`;
-  const defaultDesc = settings?.hero_subtitle || 'Sri Lanka’s trusted hardware store supplying contractor-grade power tools, genuine building materials, electricals, plumbing, and safety equipment.';
+  const siteName = siteConfig.brandName;
+  const fullTitle = title ? `${title} | ${siteName}` : `${siteName} | ${siteConfig.tagline}`;
+  const defaultDesc = settings?.hero_subtitle || `${siteName} supplies contractor-grade power tools, genuine cement, steel, plumbing, and electrical materials with islandwide delivery in Sri Lanka.`;
   const finalDesc = description || defaultDesc;
+  const siteUrl = window.location.href;
+  const logoUrl = `${window.location.origin}/logo.png`;
 
   useEffect(() => {
-    // Update Title
+    // 1. Update Document Title
     document.title = fullTitle;
 
-    // Update Meta Description
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = 'description';
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = finalDesc;
+    // 2. Helper to set or create meta tags
+    const setMetaTag = (attr, val, content) => {
+      let meta = document.querySelector(`meta[${attr}="${val}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute(attr, val);
+        document.head.appendChild(meta);
+      }
+      meta.content = content;
+    };
 
-    // Structured Data JSON-LD
+    setMetaTag('name', 'description', finalDesc);
+    setMetaTag('property', 'og:title', fullTitle);
+    setMetaTag('property', 'og:description', finalDesc);
+    setMetaTag('property', 'og:url', siteUrl);
+    setMetaTag('property', 'og:site_name', siteName);
+    setMetaTag('property', 'og:type', schemaType === 'Product' ? 'product' : 'website');
+    setMetaTag('property', 'og:image', productData?.images?.[0] || logoUrl);
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:title', fullTitle);
+    setMetaTag('name', 'twitter:description', finalDesc);
+    setMetaTag('name', 'twitter:image', productData?.images?.[0] || logoUrl);
+
+    // 3. Structured Data JSON-LD
     let scriptTag = document.getElementById('json-ld-schema');
     if (!scriptTag) {
       scriptTag = document.createElement('script');
@@ -40,16 +57,16 @@ export default function SEOHead({
         '@context': 'https://schema.org/',
         '@type': 'Product',
         name: productData.name,
-        image: Array.isArray(productData.images) && productData.images.length > 0 ? productData.images[0] : '',
-        description: productData.description || productData.short_description,
+        image: Array.isArray(productData.images) && productData.images.length > 0 ? productData.images[0] : logoUrl,
+        description: productData.description || productData.short_description || finalDesc,
         sku: productData.sku,
         brand: {
           '@type': 'Brand',
-          name: productData.brand || 'Nethmi Hardware'
+          name: productData.brand || siteName
         },
         offers: {
           '@type': 'Offer',
-          url: window.location.href,
+          url: siteUrl,
           priceCurrency: 'LKR',
           price: productData.offer_price || productData.price,
           availability: productData.stock_status === 'In Stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
@@ -64,13 +81,19 @@ export default function SEOHead({
         '@context': 'https://schema.org',
         '@type': 'HardwareStore',
         name: siteName,
-        image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=800&q=80',
-        telephone: settings?.phone || '+94771234567',
+        url: window.location.origin,
+        logo: logoUrl,
+        image: `${window.location.origin}/Sunlit%20Construction%20Supply%20Showcase.png`,
+        description: finalDesc,
+        telephone: settings?.phone || siteConfig.phone,
+        email: settings?.email || siteConfig.email,
+        priceRange: '$$',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: settings?.address || 'No. 142, Kandy Road',
-          addressLocality: 'Kiribathgoda',
-          addressCountry: 'LK'
+          streetAddress: settings?.address || siteConfig.address,
+          addressLocality: siteConfig.city,
+          addressRegion: siteConfig.province,
+          addressCountry: siteConfig.country
         },
         openingHoursSpecification: [
           {
@@ -85,13 +108,12 @@ export default function SEOHead({
             opens: '08:00',
             closes: '13:00'
           }
-        ],
-        url: window.location.origin
+        ]
       };
     }
 
     scriptTag.text = JSON.stringify(schemaObj);
-  }, [fullTitle, finalDesc, schemaType, productData, settings]);
+  }, [fullTitle, finalDesc, schemaType, productData, settings, siteUrl, logoUrl]);
 
   return null;
 }

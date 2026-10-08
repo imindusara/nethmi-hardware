@@ -24,11 +24,11 @@ export async function seedDatabase() {
 
   // 2. Settings Seeding
   const defaultSettings = [
-    { key: 'site_name', value: 'Nethmi Hardware' },
+    { key: 'site_name', value: 'Nethmi Online Tool Shop' },
     { key: 'tagline', value: 'Everything You Need to Build, Fix and Create' },
-    { key: 'phone', value: '+94 77 123 4567' },
+    { key: 'phone', value: '+94 78 999 1624' },
     { key: 'phone_secondary', value: '+94 11 234 5678' },
-    { key: 'whatsapp', value: '94771234567' },
+    { key: 'whatsapp', value: '94789991624' },
     { key: 'email', value: 'info@nethmihardware.com' },
     { key: 'address', value: 'No. 142, Kandy Road, Kiribathgoda, Sri Lanka' },
     { key: 'opening_hours', value: 'Mon - Sat: 7:30 AM - 6:30 PM | Sunday: 8:00 AM - 1:00 PM' },

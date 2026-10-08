@@ -42,10 +42,12 @@ export default function AdminSidebar({ stats }) {
       
       {/* Brand Header */}
       <div className="p-5 border-b border-gray-800 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-primary-500 text-white flex items-center justify-center shadow-md">
-            <Wrench className="w-4 h-4 -rotate-45" />
-          </div>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/logo.png"
+            alt="Nethmi Hardware"
+            className="w-9 h-9 object-contain drop-shadow"
+          />
           <div>
             <span className="font-heading font-black text-sm text-white tracking-wider block">
               NETHMI ADMIN

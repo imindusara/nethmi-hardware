@@ -2,15 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Wrench, Home, Search } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { siteConfig } from '../config/siteConfig';
 
 export default function NotFound() {
   return (
     <>
-      <SEOHead title="404 - Page Not Found" description="The page you are looking for does not exist on Nethmi Hardware." />
+      <SEOHead title="404 - Page Not Found" description={`The page you are looking for does not exist on ${siteConfig.brandName}.`} />
       <div className="max-w-7xl mx-auto px-4 py-24 sm:py-32 flex flex-col items-center justify-center text-center">
-        <div className="w-20 h-20 rounded-3xl bg-red-500/10 text-primary-500 flex items-center justify-center mb-6 shadow-md">
-          <Wrench className="w-10 h-10 -rotate-45" />
-        </div>
+        <img
+          src="/logo.png"
+          alt={`${siteConfig.brandName} Emblem`}
+          className="w-24 h-24 object-contain mb-6 drop-shadow-xl animate-bounce"
+        />
         <h1 className="text-6xl sm:text-8xl font-black font-heading text-gray-900 dark:text-white mb-4">
           404
         </h1>
